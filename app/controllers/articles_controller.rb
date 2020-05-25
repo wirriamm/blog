@@ -42,6 +42,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
+    raise
     redirect_to root_path, notice: 'Article was successfully destroyed.'
   end
 
@@ -53,6 +54,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, photos: [])
     end
 end

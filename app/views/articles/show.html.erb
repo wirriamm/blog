@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= cl_image_tag 'qi3adgczdyew4yo9izet', width: 400, height: 300, crop: :fill %>
-<%= cl_image_tag 'hmnjup4scy0kohlywg4u',
+<%#= cl_image_tag 'qi3adgczdyew4yo9izet', width: 400, height: 300, crop: :fill %>
+<%#= cl_image_tag 'hmnjup4scy0kohlywg4u',
       width: 150, height: 150, crop: :thumb, gravity: :face %>
+<%#= cl_image_tag @article.photo.key,
+      height: 300, width: 300, crop: :fill %>
+<% @article.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
